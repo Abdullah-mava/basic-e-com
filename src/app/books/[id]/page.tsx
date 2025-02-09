@@ -1,10 +1,9 @@
-// app/books/[id]/page.tsx
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { fetchBooks, Book } from "@/app/lib/api";
 import BookDetail from "@/app/components/BookDetail";
 
-// Casting params as any to satisfy the PageProps constraint.
 export default async function BookDetailPage({ params }: { params: any }) {
-  // Fetch all books and then find the one matching the dynamic route ID.
+  // Fetch all books and find the one matching the dynamic route ID.
   const books: Book[] = await fetchBooks();
   const book = books.find((b) => b.id === params.id);
 
